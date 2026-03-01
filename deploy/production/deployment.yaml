@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: mcp-veo
-          image: ghcr.io/acedatacloud/mcp-veo:latest
+          image: ghcr.io/acedatacloud/mcp-veo:${TAG}
           ports:
             - containerPort: 8000
               protocol: TCP
