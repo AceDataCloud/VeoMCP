@@ -6,7 +6,7 @@ from pydantic import Field
 
 from core.client import client
 from core.server import mcp
-from core.types import DEFAULT_ASPECT_RATIO, DEFAULT_MODEL, AspectRatio, VeoModel
+from core.types import DEFAULT_ASPECT_RATIO, DEFAULT_MODEL, AspectRatio, VeoModel, VideoResolution
 from core.utils import format_video_result
 
 
@@ -36,6 +36,12 @@ async def veo_text_to_video(
             description="If true, automatically translate the prompt to English for better generation quality. Useful for non-English prompts."
         ),
     ] = False,
+    resolution: Annotated[
+        VideoResolution | None,
+        Field(
+            description="Video resolution. Options: '4k' for highest quality, '1080p' for standard HD, 'gif' for animated GIF format. If not specified, uses the model's default resolution."
+        ),
+    ] = None,
     callback_url: Annotated[
         str,
         Field(
@@ -67,6 +73,8 @@ async def veo_text_to_video(
 
     if translation:
         payload["translation"] = translation
+    if resolution:
+        payload["resolution"] = resolution
     if callback_url:
         payload["callback_url"] = callback_url
 
@@ -91,7 +99,7 @@ async def veo_image_to_video(
     model: Annotated[
         VeoModel,
         Field(
-            description="Veo model version. Note: 'veo31-fast-ingredients' is for multi-image fusion mode only. Other models support 1 image (first frame) or 2-3 images (first/last frame)."
+            description="Veo model version. Note: 'veo31-fast-ingredient' is for multi-image fusion mode only. Other models support 1 image (first frame) or 2-3 images (first/last frame)."
         ),
     ] = DEFAULT_MODEL,
     aspect_ratio: Annotated[
@@ -106,6 +114,12 @@ async def veo_image_to_video(
             description="If true, automatically translate the prompt to English for better generation quality."
         ),
     ] = False,
+    resolution: Annotated[
+        VideoResolution | None,
+        Field(
+            description="Video resolution. Options: '4k' for highest quality, '1080p' for standard HD, 'gif' for animated GIF format."
+        ),
+    ] = None,
     callback_url: Annotated[
         str,
         Field(description="Optional URL to receive a POST callback when generation completes."),
@@ -141,6 +155,8 @@ async def veo_image_to_video(
 
     if translation:
         payload["translation"] = translation
+    if resolution:
+        payload["resolution"] = resolution
     if callback_url:
         payload["callback_url"] = callback_url
 

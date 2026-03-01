@@ -15,7 +15,7 @@ async def veo_list_models() -> str:
     - veo2/veo2-fast: Standard models, 1 image (first frame)
     - veo3/veo3-fast: Improved quality, 1-3 images supported
     - veo31/veo31-fast: Latest models, 1-3 images supported
-    - veo31-fast-ingredients: Multi-image fusion mode (image2video only)
+    - veo31-fast-ingredient: Multi-image fusion mode (image2video only)
 
     Returns:
         Table of all models with their capabilities and image rules.
@@ -30,18 +30,18 @@ async def veo_list_models() -> str:
 | veo3-fast              | ✅         | ✅          | 1-3 images (first/last)      |
 | veo31                  | ✅         | ✅          | 1-3 images (first/last)      |
 | veo31-fast             | ✅         | ✅          | 1-3 images (first/last)      |
-| veo31-fast-ingredients | ❌         | ✅          | 1-3 images (multi-fusion)    |
+| veo31-fast-ingredient  | ❌         | ✅          | 1-3 images (multi-fusion)    |
 
 Image Input Modes:
 - First Frame Mode (1 image): Video starts from your image
 - First/Last Frame Mode (2-3 images): Video interpolates between images
-- Multi-Fusion Mode (veo31-fast-ingredients only): Blends elements from all images
+- Multi-Fusion Mode (veo31-fast-ingredient only): Blends elements from all images
 
 Recommendations:
 - For quick generation: Use '-fast' suffix models
 - For best quality: Use veo31 or veo3 (non-fast)
-- For image fusion: Use veo31-fast-ingredients
-- For text-only: Any model except veo31-fast-ingredients
+- For image fusion: Use veo31-fast-ingredient
+- For text-only: Any model except veo31-fast-ingredient
 
 Aspect Ratios:
 - 16:9: Landscape/widescreen (default)
@@ -49,6 +49,11 @@ Aspect Ratios:
 - 4:3: Standard
 - 3:4: Portrait standard
 - 1:1: Square
+
+Resolution Options:
+- 4k: Highest quality output
+- 1080p: Standard HD resolution
+- gif: Animated GIF format
 """
 
 
@@ -82,7 +87,7 @@ Workflow Examples:
 1. Quick video: veo_text_to_video → veo_get_task → (optional) veo_get_1080p
 2. Image animation: veo_image_to_video → veo_get_task
 3. Image transition: veo_image_to_video (with 2-3 images) → veo_get_task
-4. Multi-image fusion: veo_image_to_video (model=veo31-fast-ingredients) → veo_get_task
+4. Multi-image fusion: veo_image_to_video (model=veo31-fast-ingredient) → veo_get_task
 
 API Response States:
 - processing: Video is being generated

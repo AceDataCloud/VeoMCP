@@ -10,14 +10,17 @@ VeoModel = Literal[
     "veo3-fast",
     "veo31",
     "veo31-fast",
-    "veo31-fast-ingredients",
+    "veo31-fast-ingredient",
 ]
 
 # Aspect ratio options
-AspectRatio = Literal["16:9", "3:4", "4:3", "1:1"]
+AspectRatio = Literal["16:9", "9:16", "3:4", "4:3", "1:1"]
 
 # Default model
 DEFAULT_MODEL: VeoModel = "veo2"
+
+# Video resolution options
+VideoResolution = Literal["4k", "1080p", "gif"]
 
 # Default aspect ratio
 DEFAULT_ASPECT_RATIO: AspectRatio = "16:9"
