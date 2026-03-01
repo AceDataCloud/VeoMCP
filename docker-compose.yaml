@@ -1,0 +1,9 @@
+version: "3"
+services:
+  mcp-veo:
+    platform: linux/amd64
+    container_name: "mcp-veo"
+    build: ./
+    image: "ghcr.io/acedatacloud/mcp-veo:${BUILD_NUMBER}"
+    ports:
+      - "8000:8000"

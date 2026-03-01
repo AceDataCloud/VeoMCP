@@ -1,5 +1,6 @@
 """HTTP client for Veo API."""
 
+import contextvars
 import json
 from typing import Any
 
@@ -8,6 +9,21 @@ from loguru import logger
 
 from core.config import settings
 from core.exceptions import VeoAPIError, VeoAuthError, VeoTimeoutError
+
+# Context variable for per-request API token (used in HTTP/remote mode)
+_request_api_token: contextvars.ContextVar[str | None] = contextvars.ContextVar(
+    "_request_api_token", default=None
+)
+
+
+def set_request_api_token(token: str | None) -> None:
+    """Set the API token for the current request context (HTTP mode)."""
+    _request_api_token.set(token)
+
+
+def get_request_api_token() -> str | None:
+    """Get the API token from the current request context."""
+    return _request_api_token.get()
 
 
 class VeoClient:
@@ -30,7 +46,8 @@ class VeoClient:
 
     def _get_headers(self) -> dict[str, str]:
         """Get request headers with authentication."""
-        if not self.api_token:
+        token = get_request_api_token() or self.api_token
+        if not token:
             logger.error("API token not configured!")
             raise VeoAuthError("API token not configured")
 
