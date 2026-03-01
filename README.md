@@ -97,6 +97,61 @@ Or if using uv:
 }
 ```
 
+## Remote HTTP Mode (Hosted)
+
+AceDataCloud hosts a managed MCP server that you can connect to directly — **no local installation required**.
+
+**Endpoint**: `https://veo.mcp.acedata.cloud/mcp`
+
+All requests require a Bearer token in the `Authorization` header. Get your token from [AceDataCloud Platform](https://platform.acedata.cloud).
+
+### Claude Desktop (Remote)
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "type": "streamable-http",
+      "url": "https://veo.mcp.acedata.cloud/mcp",
+      "headers": {
+        "Authorization": "Bearer your_api_token_here"
+      }
+    }
+  }
+}
+```
+
+### Cursor / VS Code
+
+In your MCP client settings, add:
+
+- **Type**: `streamable-http`
+- **URL**: `https://veo.mcp.acedata.cloud/mcp`
+- **Headers**: `Authorization: Bearer your_api_token_here`
+
+### cURL Test
+
+```bash
+# Health check (no auth required)
+curl https://veo.mcp.acedata.cloud/health
+
+# MCP initialize (requires Bearer token)
+curl -X POST https://veo.mcp.acedata.cloud/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -H "Authorization: Bearer your_api_token_here" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
+```
+
+### Self-Hosting with Docker
+
+```bash
+docker pull ghcr.io/acedatacloud/mcp-veo:latest
+docker run -p 8000:8000 ghcr.io/acedatacloud/mcp-veo:latest
+```
+
+Clients connect with their own Bearer token — the server extracts the token from each request's `Authorization` header and uses it for upstream API calls.
+
 ## Available Tools
 
 ### Video Generation
@@ -274,9 +329,15 @@ MCPVeo/
 │   ├── test_config.py
 │   ├── test_integration.py
 │   └── test_utils.py
+├── deploy/                 # Deployment configs
+│   └── production/
+│       ├── deployment.yaml
+│       ├── ingress.yaml
+│       └── service.yaml
 ├── .env.example           # Environment template
 ├── .gitignore
-├── CHANGELOG.md
+├── Dockerfile             # Docker image for HTTP mode
+├── docker-compose.yaml    # Docker Compose config
 ├── LICENSE
 ├── main.py                # Entry point
 ├── pyproject.toml         # Project configuration
