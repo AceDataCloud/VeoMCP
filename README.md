@@ -161,25 +161,25 @@ Clients connect with their own Bearer token — the server extracts the token fr
 
 ### Video Generation
 
-| Tool | Description |
-|------|-------------|
-| `veo_text_to_video` | Generate video from a text prompt |
+| Tool                 | Description                            |
+| -------------------- | -------------------------------------- |
+| `veo_text_to_video`  | Generate video from a text prompt      |
 | `veo_image_to_video` | Generate video from reference image(s) |
-| `veo_get_1080p` | Get high-resolution 1080p version |
+| `veo_get_1080p`      | Get high-resolution 1080p version      |
 
 ### Tasks
 
-| Tool | Description |
-|------|-------------|
-| `veo_get_task` | Query a single task status |
+| Tool                  | Description                  |
+| --------------------- | ---------------------------- |
+| `veo_get_task`        | Query a single task status   |
 | `veo_get_tasks_batch` | Query multiple tasks at once |
 
 ### Information
 
-| Tool | Description |
-|------|-------------|
-| `veo_list_models` | List available Veo models |
-| `veo_list_actions` | List available API actions |
+| Tool                   | Description                    |
+| ---------------------- | ------------------------------ |
+| `veo_list_models`      | List available Veo models      |
+| `veo_list_actions`     | List available API actions     |
 | `veo_get_prompt_guide` | Get video prompt writing guide |
 
 ## Usage Examples
@@ -213,17 +213,18 @@ Claude: I'll create a transition video between your images.
 
 ## Available Models
 
-| Model | Text2Video | Image2Video | Image Input |
-|-------|------------|-------------|-------------|
-| `veo2` | ✅ | ✅ | 1 image (first frame) |
-| `veo2-fast` | ✅ | ✅ | 1 image (first frame) |
-| `veo3` | ✅ | ✅ | 1-3 images |
-| `veo3-fast` | ✅ | ✅ | 1-3 images |
-| `veo31` | ✅ | ✅ | 1-3 images |
-| `veo31-fast` | ✅ | ✅ | 1-3 images |
-| `veo31-fast-ingredients` | ❌ | ✅ | 1-3 images (fusion) |
+| Model                    | Text2Video | Image2Video | Image Input           |
+| ------------------------ | ---------- | ----------- | --------------------- |
+| `veo2`                   | ✅         | ✅          | 1 image (first frame) |
+| `veo2-fast`              | ✅         | ✅          | 1 image (first frame) |
+| `veo3`                   | ✅         | ✅          | 1-3 images            |
+| `veo3-fast`              | ✅         | ✅          | 1-3 images            |
+| `veo31`                  | ✅         | ✅          | 1-3 images            |
+| `veo31-fast`             | ✅         | ✅          | 1-3 images            |
+| `veo31-fast-ingredients` | ❌         | ✅          | 1-3 images (fusion)   |
 
 **Aspect Ratios**:
+
 - `16:9` - Landscape/widescreen (default)
 - `9:16` - Portrait/vertical (social media)
 - `4:3` - Standard
@@ -234,13 +235,13 @@ Claude: I'll create a transition video between your images.
 
 ### Environment Variables
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `ACEDATACLOUD_API_TOKEN` | API token from AceDataCloud | **Required** |
-| `ACEDATACLOUD_API_BASE_URL` | API base URL | `https://api.acedata.cloud` |
-| `VEO_DEFAULT_MODEL` | Default model for generation | `veo2` |
-| `VEO_REQUEST_TIMEOUT` | Request timeout in seconds | `180` |
-| `LOG_LEVEL` | Logging level | `INFO` |
+| Variable                    | Description                  | Default                     |
+| --------------------------- | ---------------------------- | --------------------------- |
+| `ACEDATACLOUD_API_TOKEN`    | API token from AceDataCloud  | **Required**                |
+| `ACEDATACLOUD_API_BASE_URL` | API base URL                 | `https://api.acedata.cloud` |
+| `VEO_DEFAULT_MODEL`         | Default model for generation | `veo2`                      |
+| `VEO_REQUEST_TIMEOUT`       | Request timeout in seconds   | `180`                       |
+| `LOG_LEVEL`                 | Logging level                | `INFO`                      |
 
 ### Command Line Options
 
