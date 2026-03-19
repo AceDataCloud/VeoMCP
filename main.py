@@ -180,27 +180,40 @@ Environment Variables:
 
             async def server_card(_request: Request) -> JSONResponse:
                 """MCP Server Card for Smithery and other registries."""
-                return JSONResponse({
-                    "serverInfo": {"name": "MCP Veo"},
-                    "authentication": {"required": True, "schemes": ["bearer"]},
-                    "tools": [
-                    {"name": "veo_text_to_video", "description": "Generate video from text"},
-                    {"name": "veo_image_to_video", "description": "Generate video from image"},
-                    {"name": "veo_get_1080p", "description": "Get 1080p version"},
-                    {"name": "veo_get_task", "description": "Query task status"},
-                    {"name": "veo_get_tasks_batch", "description": "Query multiple tasks"},
-                    {"name": "veo_list_models", "description": "List available models"},
-                    {"name": "veo_list_actions", "description": "List available actions"},
-                    {"name": "veo_get_prompt_guide", "description": "Get prompt writing guide"}
-                    ],
-                    "prompts": [
-                    {"name": "veo_video_generation_guide", "description": "Guide for video generation"},
-                    {"name": "veo_workflow_examples", "description": "Example workflows"},
-                    {"name": "veo_style_suggestions", "description": "Style suggestions"}
-                    ],
-                    "resources": [],
-                })
-
+                return JSONResponse(
+                    {
+                        "serverInfo": {"name": "MCP Veo"},
+                        "authentication": {"required": True, "schemes": ["bearer"]},
+                        "tools": [
+                            {
+                                "name": "veo_text_to_video",
+                                "description": "Generate video from text",
+                            },
+                            {
+                                "name": "veo_image_to_video",
+                                "description": "Generate video from image",
+                            },
+                            {"name": "veo_get_1080p", "description": "Get 1080p version"},
+                            {"name": "veo_get_task", "description": "Query task status"},
+                            {"name": "veo_get_tasks_batch", "description": "Query multiple tasks"},
+                            {"name": "veo_list_models", "description": "List available models"},
+                            {"name": "veo_list_actions", "description": "List available actions"},
+                            {
+                                "name": "veo_get_prompt_guide",
+                                "description": "Get prompt writing guide",
+                            },
+                        ],
+                        "prompts": [
+                            {
+                                "name": "veo_video_generation_guide",
+                                "description": "Guide for video generation",
+                            },
+                            {"name": "veo_workflow_examples", "description": "Example workflows"},
+                            {"name": "veo_style_suggestions", "description": "Style suggestions"},
+                        ],
+                        "resources": [],
+                    }
+                )
 
             @contextlib.asynccontextmanager
             async def lifespan(_app: Starlette):  # type: ignore[no-untyped-def]
