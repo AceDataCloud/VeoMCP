@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.acedatacloud/mcp-veo",
+  "name": "io.github.AceDataCloud/mcp-veo",
   "description": "MCP server for Google Veo AI video generation",
-  "version": "0.1.0",
+  "version": "2026.3.19.7",
   "repository": {
     "url": "https://github.com/AceDataCloud/MCPVeo",
     "source": "github"
@@ -10,7 +10,7 @@
   "packages": [
     {
       "identifier": "mcp-veo",
-      "version": "0.1.0",
+      "version": "2026.3.19.7",
       "transport": {
         "type": "stdio"
       },
