@@ -134,6 +134,27 @@ In your MCP client settings, add:
 - **URL**: `https://veo.mcp.acedata.cloud/mcp`
 - **Headers**: `Authorization: Bearer your_api_token_here`
 
+### JetBrains IDEs
+
+Install the [Veo MCP plugin](https://plugins.jetbrains.com/plugin/com.acedatacloud.mcp.veo) from the JetBrains Marketplace, or configure manually:
+
+1. Go to **Settings → Tools → AI Assistant → Model Context Protocol (MCP)**
+2. Click **Add** and select **HTTP**
+3. Paste this configuration:
+
+```json
+{
+  "mcpServers": {
+    "veo": {
+      "url": "https://veo.mcp.acedata.cloud/mcp",
+      "headers": {
+        "Authorization": "Bearer your_api_token_here"
+      }
+    }
+  }
+}
+```
+
 ### cURL Test
 
 ```bash

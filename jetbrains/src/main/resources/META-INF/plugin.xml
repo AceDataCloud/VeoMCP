@@ -1,0 +1,73 @@
+<idea-plugin>
+    <id>com.acedatacloud.mcp.veo</id>
+    <name>Veo MCP</name>
+    <vendor email="dev@acedata.cloud" url="https://acedata.cloud">Ace Data Cloud</vendor>
+
+    <description><![CDATA[
+<p><b>AI Video Generation</b> with <a href="https://deepmind.google/technologies/veo">Google Veo</a> via
+<a href="https://modelcontextprotocol.io">Model Context Protocol (MCP)</a>.</p>
+
+<p>This plugin helps you set up the MCP Google Veo server with JetBrains AI Assistant.
+Once configured, AI Assistant can generate videos from text and images
+— all powered by <a href="https://platform.acedata.cloud">Ace Data Cloud</a>.</p>
+
+<h3>Features</h3>
+<ul>
+    <li><b>8 AI Tools</b> — Generate videos from text and images</li>
+    <li><b>Easy Setup</b> — One-click copy MCP configuration for AI Assistant</li>
+    <li><b>Dual Mode</b> — STDIO (local) and HTTP (remote) server support</li>
+    <li><b>Token Management</b> — Store API token securely in IDE settings</li>
+</ul>
+
+<h3>Available Tools</h3>
+<ul>
+    <li><b>Generate</b> — Create videos from text prompts</li>
+    <li><b>Image to Video</b> — Animate images into videos</li>
+    <li><b>Task Tracking</b> — Monitor generation progress</li>
+    <li><b>Model Selection</b> — Choose Veo model versions</li>
+</ul>
+
+<h3>Quick Start</h3>
+<ol>
+    <li>Install this plugin</li>
+    <li>Open <b>Settings → Tools → Veo MCP</b></li>
+    <li>Enter your <a href="https://platform.acedata.cloud">Ace Data Cloud</a> API token</li>
+    <li>Click <b>Copy Config</b> and paste into <b>Settings → Tools → AI Assistant → MCP</b></li>
+</ol>
+
+<p>Requires <a href="https://github.com/astral-sh/uv">uv</a> (Python package runner) for STDIO mode,
+or use HTTP mode for zero-install remote access.</p>
+]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+            serviceImplementation="com.acedatacloud.mcp.veo.McpSettings"/>
+
+        <applicationConfigurable
+            id="com.acedatacloud.mcp.veo.settings"
+            displayName="Veo MCP"
+            parentId="tools"
+            instance="com.acedatacloud.mcp.veo.McpSettingsConfigurable"/>
+
+        <postStartupActivity
+            implementation="com.acedatacloud.mcp.veo.McpStartupActivity"/>
+
+        <notificationGroup id="Veo MCP" displayType="BALLOON"/>
+    </extensions>
+
+    <actions>
+        <group id="com.acedatacloud.mcp.veo.Actions" text="Veo MCP" popup="true">
+            <action id="com.acedatacloud.mcp.veo.CopyStdioConfig"
+                class="com.acedatacloud.mcp.veo.CopyStdioConfigAction"
+                text="Copy STDIO Config"
+                description="Copy STDIO MCP configuration for AI Assistant"/>
+            <action id="com.acedatacloud.mcp.veo.CopyHttpConfig"
+                class="com.acedatacloud.mcp.veo.CopyHttpConfigAction"
+                text="Copy HTTP Config"
+                description="Copy HTTP MCP configuration for AI Assistant"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </group>
+    </actions>
+</idea-plugin>
