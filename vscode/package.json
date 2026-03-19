@@ -1,0 +1,48 @@
+{
+  "name": "mcp-veo",
+  "displayName": "Veo MCP",
+  "description": "AI Video Generation with Google Veo - Generate videos from text and images via Ace Data Cloud API",
+  "version": "0.1.0",
+  "publisher": "acedatacloud",
+  "icon": "icon.png",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "AI",
+    "Chat"
+  ],
+  "keywords": [
+    "mcp",
+    "model context protocol",
+    "ai",
+    "copilot",
+    "ace data cloud",
+    "veo",
+    "video generation",
+    "google veo",
+    "ai video"
+  ],
+  "homepage": "https://github.com/AceDataCloud/MCPVeo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AceDataCloud/MCPVeo"
+  },
+  "bugs": {
+    "url": "https://github.com/AceDataCloud/MCPVeo/issues"
+  },
+  "contributes": {
+    "mcpServers": {
+      "veo": {
+        "command": "uvx",
+        "args": [
+          "mcp-veo"
+        ],
+        "env": {
+          "ACEDATACLOUD_API_TOKEN": ""
+        }
+      }
+    }
+  }
+}
