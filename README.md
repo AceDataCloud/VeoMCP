@@ -1,5 +1,7 @@
 # MCP Veo
 
+<!-- mcp-name: io.github.acedatacloud/mcp-veo -->
+
 [![PyPI version](https://img.shields.io/pypi/v/mcp-veo.svg)](https://pypi.org/project/mcp-veo/)
 [![PyPI downloads](https://img.shields.io/pypi/dm/mcp-veo.svg)](https://pypi.org/project/mcp-veo/)
 
