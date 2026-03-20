@@ -53,7 +53,7 @@ class VeoClient:
 
         return {
             "accept": "application/json",
-            "authorization": f"Bearer {self.api_token}",
+            "authorization": f"Bearer {token}",
             "content-type": "application/json",
         }
 
