@@ -31,6 +31,8 @@ spec:
           env:
             - name: MCP_SERVER_URL
               value: "https://veo.mcp.acedata.cloud"
+            - name: ACEDATACLOUD_OAUTH_CLIENT_ID
+              value: "svtJ6eNjQAUuUrKMdWo7uKCGq_NEpiKQQfn4JsMBXmQ"
           resources:
             limits:
               cpu: 500m
