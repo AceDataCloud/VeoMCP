@@ -10,6 +10,9 @@ from loguru import logger
 from core.config import settings
 from core.exceptions import VeoAPIError, VeoAuthError, VeoTimeoutError
 
+# Force upstream async mode in MCP so tool calls return quickly with a task_id.
+_ASYNC_CALLBACK_URL = "https://api.acedata.cloud/health"
+
 # Context variable for per-request API token (used in HTTP/remote mode)
 _request_api_token: contextvars.ContextVar[str | None] = contextvars.ContextVar(
     "_request_api_token", default=None
@@ -56,6 +59,13 @@ class VeoClient:
             "authorization": f"Bearer {token}",
             "content-type": "application/json",
         }
+
+    def _with_async_callback(self, payload: dict[str, Any]) -> dict[str, Any]:
+        """Ensure long-running media operations are submitted asynchronously."""
+        request_payload = dict(payload)
+        if not request_payload.get("callback_url"):
+            request_payload["callback_url"] = _ASYNC_CALLBACK_URL
+        return request_payload
 
     async def request(
         self,
@@ -149,12 +159,14 @@ class VeoClient:
     async def generate_video(self, **kwargs: Any) -> dict[str, Any]:
         """Generate video using the videos endpoint."""
         logger.info(f"🎬 Generating video with action: {kwargs.get('action', 'text2video')}")
-        return await self.request("/veo/videos", kwargs)
+        return await self.request("/veo/videos", self._with_async_callback(kwargs))
 
     async def get_1080p(self, video_id: str) -> dict[str, Any]:
         """Get 1080p version of a video."""
         logger.info(f"📺 Getting 1080p video for: {video_id}")
-        return await self.request("/veo/videos", {"action": "get1080p", "video_id": video_id})
+        return await self.request(
+            "/veo/videos", self._with_async_callback({"action": "get1080p", "video_id": video_id})
+        )
 
     async def query_task(self, **kwargs: Any) -> dict[str, Any]:
         """Query task status using the tasks endpoint."""

@@ -68,7 +68,8 @@ When the user wants to generate video, choose the appropriate tool based on thei
 - veo31-fast-ingredients (image2video only)
 
 ## Important Notes:
-1. Video generation is async - always return the task_id
+1. Video generation is async in MCP - generation tools should return quickly with a task_id
+2. After text/image/1080p submission, poll with `veo_get_task` until the final video URLs are available
 2. Generation typically takes 1-2 minutes
 3. Use callback_url for async notifications
 4. Match aspect ratio to intended use (16:9 landscape, 9:16 portrait)
@@ -83,9 +84,9 @@ def veo_workflow_examples() -> str:
 ## Workflow 1: Text to Video Generation
 1. User: "Create a video of a cat playing with yarn"
 2. Call `veo_text_to_video(prompt="Close-up shot of an adorable cat playfully batting at a ball of red yarn, soft indoor lighting, shallow depth of field")`
-3. Return task_id to user
-4. User can check status with `veo_get_task(task_id)`
-5. Once complete, optionally get 1080p with `veo_get_1080p(video_id)`
+3. Return the task_id from the submission response
+4. Poll with `veo_get_task(task_id)` until the final video URLs are available
+5. Once complete, optionally get 1080p with `veo_get_1080p(video_id)` and poll that task too
 
 ## Workflow 2: Image Animation
 1. User provides an image URL
