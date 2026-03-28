@@ -398,8 +398,8 @@ Options:
 
 ```bash
 # Clone repository
-git clone https://github.com/AceDataCloud/MCPVeo.git
-cd MCPVeo
+git clone https://github.com/AceDataCloud/VeoMCP.git
+cd VeoMCP
 
 # Create virtual environment
 python -m venv .venv
@@ -451,7 +451,7 @@ twine upload dist/*
 ## Project Structure
 
 ```
-MCPVeo/
+VeoMCP/
 ├── core/                   # Core modules
 │   ├── __init__.py
 │   ├── client.py          # HTTP client for Veo API

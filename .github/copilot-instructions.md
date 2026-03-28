@@ -1,4 +1,4 @@
-# Copilot Instructions for MCPVeo
+# Copilot Instructions for VeoMCP
 
 ## Sync from Docs
 

@@ -4,7 +4,7 @@
   "description": "MCP server for Google Veo AI video generation",
   "version": "2026.3.19.8",
   "repository": {
-    "url": "https://github.com/AceDataCloud/MCPVeo",
+    "url": "https://github.com/AceDataCloud/VeoMCP",
     "source": "github"
   },
   "packages": [
