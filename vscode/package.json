@@ -24,13 +24,13 @@
     "google veo",
     "ai video"
   ],
-  "homepage": "https://github.com/AceDataCloud/MCPVeo",
+  "homepage": "https://github.com/AceDataCloud/VeoMCP",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AceDataCloud/MCPVeo"
+    "url": "https://github.com/AceDataCloud/VeoMCP"
   },
   "bugs": {
-    "url": "https://github.com/AceDataCloud/MCPVeo/issues"
+    "url": "https://github.com/AceDataCloud/VeoMCP/issues"
   },
   "contributes": {
     "mcpServers": {
