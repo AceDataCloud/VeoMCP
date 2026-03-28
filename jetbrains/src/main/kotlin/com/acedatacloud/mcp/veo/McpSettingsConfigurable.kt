@@ -88,7 +88,7 @@ class McpSettingsConfigurable : Configurable {
                     browserLink("API Documentation", "https://docs.acedata.cloud")
                 }
                 row {
-                    browserLink("Source Code", "https://github.com/AceDataCloud/MCPVeo")
+                    browserLink("Source Code", "https://github.com/AceDataCloud/VeoMCP")
                 }
                 row {
                     browserLink("PyPI Package", "https://pypi.org/project/mcp-veo/")
