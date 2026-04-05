@@ -21,6 +21,19 @@ Generate AI videos from text prompts or images directly from Claude, VS Code, or
 - **Task Tracking** - Monitor generation progress and retrieve results
 - **Multiple Models** - Choose between quality and speed with various Veo models
 
+## Tool Reference
+
+| Tool | Description |
+|------|-------------|
+| `veo_text_to_video` | Generate AI video from a text prompt using Veo. |
+| `veo_image_to_video` | Generate AI video from one or more reference images using Veo. |
+| `veo_get_1080p` | Get the 1080p high-resolution version of a generated video. |
+| `veo_get_task` | Query the status and result of a video generation task. |
+| `veo_get_tasks_batch` | Query multiple video generation tasks at once. |
+| `veo_list_models` | List all available Veo models and their capabilities. |
+| `veo_list_actions` | List all available Veo API actions and corresponding tools. |
+| `veo_get_prompt_guide` | Get guidance on writing effective prompts for Veo video generation. |
+
 ## Quick Start
 
 ### 1. Get Your API Token

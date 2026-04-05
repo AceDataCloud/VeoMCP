@@ -20,6 +20,7 @@ async def veo_list_models() -> str:
     Returns:
         Table of all models with their capabilities and image rules.
     """
+    # Last updated: 2026-04-05
     return """Available Veo Models:
 
 | Model                  | Text2Video | Image2Video | Image Input Rules           |
@@ -67,6 +68,7 @@ async def veo_list_actions() -> str:
     Returns:
         Categorized list of all actions and their corresponding tools.
     """
+    # Last updated: 2026-04-05
     return """Available Veo Actions and Tools:
 
 Video Generation:
@@ -112,6 +114,7 @@ async def veo_get_prompt_guide() -> str:
     Returns:
         Complete guide with prompt structure, examples, and tips.
     """
+    # Last updated: 2026-04-05
     return """Veo Prompt Writing Guide:
 
 ## Prompt Structure
