@@ -1,4 +1,4 @@
-# MCP Veo
+# VeoMCP
 
 <!-- mcp-name: io.github.AceDataCloud/mcp-veo -->
 
