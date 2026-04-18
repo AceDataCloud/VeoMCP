@@ -99,7 +99,7 @@ async def veo_image_to_video(
     model: Annotated[
         VeoModel,
         Field(
-            description="Veo model version. Note: 'veo31-fast-ingredient' is for multi-image fusion mode only. Other models support 1 image (first frame) or 2-3 images (first/last frame)."
+            description="Veo model version. Note: 'veo31-fast-ingredients' is for multi-image fusion mode only. Other models support 1 image (first frame) or 2-3 images (first/last frame)."
         ),
     ] = DEFAULT_MODEL,
     aspect_ratio: Annotated[
