@@ -15,7 +15,7 @@ async def veo_list_models() -> str:
     - veo2/veo2-fast: Standard models, 1 image (first frame)
     - veo3/veo3-fast: Improved quality, 1-3 images supported
     - veo31/veo31-fast: Latest models, 1-3 images supported
-    - veo31-fast-ingredients: Multi-image fusion mode (image2video only)
+    - veo31-fast-ingredients: Multi-image fusion mode (ingredients2video action)
 
     Returns:
         Table of all models with their capabilities and image rules.

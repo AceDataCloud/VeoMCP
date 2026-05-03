@@ -145,8 +145,9 @@ async def veo_image_to_video(
     Returns:
         Task ID and generated video information including URLs and state.
     """
+    action = "ingredients2video" if model == "veo31-fast-ingredients" else "image2video"
     payload: dict = {
-        "action": "image2video",
+        "action": action,
         "prompt": prompt,
         "image_urls": image_urls,
         "model": model,
