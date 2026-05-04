@@ -55,6 +55,9 @@ Resolution Options:
 - 4k: Highest quality output
 - 1080p: Standard HD resolution
 - gif: Animated GIF format
+
+Extend Support:
+- veo31 and veo31-fast: Supported for video extension (veo_extend_video)
 """
 
 
@@ -75,6 +78,12 @@ Video Generation:
 - veo_text_to_video: Create video from a text prompt only
 - veo_image_to_video: Create video from reference image(s) + prompt
 - veo_get_1080p: Get high-resolution 1080p version of a video
+
+Video Editing:
+- veo_upsample: Upsample video to higher resolution (1080p, 4K) or convert to GIF
+- veo_extend_video: Extend a video by appending new content
+- veo_reshoot: Re-render a video with a different camera motion
+- veo_video_objects: Insert or remove objects in a video
 
 Task Management:
 - veo_get_task: Check status of a single video generation
