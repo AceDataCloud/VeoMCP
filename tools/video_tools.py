@@ -264,9 +264,7 @@ async def veo_extend_video(
     ] = "veo31-fast",
     prompt: Annotated[
         str,
-        Field(
-            description="Optional prompt that guides the extended section of the video."
-        ),
+        Field(description="Optional prompt that guides the extended section of the video."),
     ] = "",
     callback_url: Annotated[
         str,

@@ -197,7 +197,9 @@ class VeoClient:
 
     async def video_objects(self, **kwargs: Any) -> dict[str, Any]:
         """Insert or remove objects in a video using the objects endpoint."""
-        logger.info(f"🔧 Video objects ({kwargs.get('action', 'insert')}): {kwargs.get('video_id', 'N/A')}")
+        logger.info(
+            f"🔧 Video objects ({kwargs.get('action', 'insert')}): {kwargs.get('video_id', 'N/A')}"
+        )
         return await self.request("/veo/objects", self._with_async_callback(kwargs))
 
     async def query_task(self, **kwargs: Any) -> dict[str, Any]:
