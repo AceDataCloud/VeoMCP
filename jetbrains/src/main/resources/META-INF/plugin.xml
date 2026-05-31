@@ -13,7 +13,7 @@ Once configured, AI Assistant can generate videos from text and images
 
 <h3>Features</h3>
 <ul>
-    <li><b>8 AI Tools</b> — Generate videos from text and images</li>
+    <li><b>14 AI Tools</b> — Generate videos from text and images</li>
     <li><b>Easy Setup</b> — One-click copy MCP configuration for AI Assistant</li>
     <li><b>Dual Mode</b> — STDIO (local) and HTTP (remote) server support</li>
     <li><b>Token Management</b> — Store API token securely in IDE settings</li>

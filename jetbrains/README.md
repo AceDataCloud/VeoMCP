@@ -7,7 +7,7 @@ This plugin helps you set up the MCP Google Veo server with JetBrains AI Assista
 Once configured, AI Assistant can generate videos from text and images
 — all powered by [Ace Data Cloud](https://platform.acedata.cloud).
 
-**8 AI Tools** — Generate videos from text and images.
+**14 AI Tools** — Generate videos from text and images.
 <!-- Plugin description end -->
 
 ## Quick Start
