@@ -2,12 +2,12 @@
   "name": "mcp-veo",
   "displayName": "Veo MCP",
   "description": "Google Veo video generation — Veo 2, Veo 3, Veo 3.1 (incl. fast variants and upscale).",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "acedatacloud",
   "icon": "icon.png",
   "license": "MIT",
   "engines": {
-    "vscode": "^1.99.0"
+    "vscode": "^1.101.0"
   },
   "categories": [
     "AI",
@@ -36,22 +36,25 @@
   "bugs": {
     "url": "https://github.com/AceDataCloud/VeoMCP/issues"
   },
+  "activationEvents": [],
+  "main": "./extension.js",
   "contributes": {
-    "mcpServers": {
-      "veo": {
-        "type": "http",
-        "url": "https://veo.mcp.acedata.cloud/mcp",
-        "headers": {
-          "Authorization": "Bearer ${input:acedatacloud_api_token}"
-        }
-      }
-    },
-    "inputs": [
+    "mcpServerDefinitionProviders": [
       {
-        "type": "promptString",
-        "id": "acedatacloud_api_token",
-        "description": "Ace Data Cloud API token. Sign in at https://platform.acedata.cloud and create a token in 'API Keys'. Stored securely by VS Code.",
-        "password": true
+        "id": "acedatacloud.veo",
+        "label": "Veo MCP"
+      }
+    ],
+    "commands": [
+      {
+        "command": "acedatacloud.veo.setApiToken",
+        "title": "Veo MCP: Set Ace Data Cloud API Key",
+        "category": "MCP"
+      },
+      {
+        "command": "acedatacloud.veo.clearApiToken",
+        "title": "Veo MCP: Clear Ace Data Cloud API Key",
+        "category": "MCP"
       }
     ]
   }
