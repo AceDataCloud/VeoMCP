@@ -1,8 +1,8 @@
 {
   "name": "mcp-veo",
   "displayName": "Veo MCP",
-  "description": "AI Video Generation with Google Veo - Generate videos from text and images via Ace Data Cloud API",
-  "version": "0.1.0",
+  "description": "Google Veo video generation — Veo 2, Veo 3, Veo 3.1 (incl. fast variants and upscale).",
+  "version": "0.2.0",
   "publisher": "acedatacloud",
   "icon": "icon.png",
   "license": "MIT",
@@ -20,10 +20,14 @@
     "copilot",
     "ace data cloud",
     "veo",
-    "video generation",
     "google veo",
-    "ai video"
+    "video generation",
+    "text to video"
   ],
+  "galleryBanner": {
+    "color": "#0E1117",
+    "theme": "dark"
+  },
   "homepage": "https://github.com/AceDataCloud/VeoMCP",
   "repository": {
     "type": "git",
@@ -35,14 +39,20 @@
   "contributes": {
     "mcpServers": {
       "veo": {
-        "command": "uvx",
-        "args": [
-          "mcp-veo"
-        ],
-        "env": {
-          "ACEDATACLOUD_API_TOKEN": ""
+        "type": "http",
+        "url": "https://veo.mcp.acedata.cloud/mcp",
+        "headers": {
+          "Authorization": "Bearer ${input:acedatacloud_api_token}"
         }
       }
-    }
+    },
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "acedatacloud_api_token",
+        "description": "Ace Data Cloud API token. Sign in at https://platform.acedata.cloud and create a token in 'API Keys'. Stored securely by VS Code.",
+        "password": true
+      }
+    ]
   }
 }
