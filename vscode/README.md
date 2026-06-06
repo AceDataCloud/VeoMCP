@@ -26,6 +26,13 @@ You can rotate or remove the API key any time from the command palette:
 > The default config talks to the **hosted streamable-HTTP endpoint** at
 > `https://veo.mcp.acedata.cloud/mcp` — no Python, no `uvx`, no local install needed.
 
+## VS Code Setup Guide
+
+For screenshots, token setup, project-level and user-level `mcp.json`, and Copilot Agent Mode examples, see:
+
+- [Veo MCP VS Code guide](https://platform.acedata.cloud/documents/promotion_article_mcp_veo_vscode)
+- [All Ace Data Cloud MCP servers in VS Code](https://platform.acedata.cloud/documents/promotion_article_mcp_all_vscode)
+
 ### Example prompts
 
 - "Generate a Veo 3.1 video of a vintage train pulling into a snowy station at dusk."
@@ -35,13 +42,17 @@ You can rotate or remove the API key any time from the command palette:
 
 ## Tool Reference
 
-**8 tools** available via this server.
+**12 tools** available via this server.
 
 | Tool | Description |
 | --- | --- |
 | `veo_text_to_video` | Generate AI video from a text prompt using Veo. |
 | `veo_image_to_video` | Generate AI video from one or more reference images using Veo. |
 | `veo_get_1080p` | Get the 1080p high-resolution version of a generated video. |
+| `veo_upsample` | Upsample a generated video to 1080p, 4K, or GIF. |
+| `veo_extend_video` | Extend a Veo 3.1 video with additional content. |
+| `veo_reshoot` | Re-render an existing video with a different camera motion. |
+| `veo_video_objects` | Insert or remove objects in a generated video. |
 | `veo_get_task` | Query the status and result of a video generation task. |
 | `veo_get_tasks_batch` | Query multiple video generation tasks at once. |
 | `veo_list_models` | List all available Veo models and their capabilities. |
@@ -91,7 +102,7 @@ this extension.
     {
       "type": "promptString",
       "id": "acedatacloud_api_token",
-    "description": "Ace Data Cloud API key",
+      "description": "Ace Data Cloud API key",
       "password": true
     }
   ]
