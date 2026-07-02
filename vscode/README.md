@@ -2,7 +2,7 @@
 
 Google Veo video generation — Veo 2, Veo 3, Veo 3.1 (incl. fast variants and upscale).
 
-[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/acedatacloud.mcp-veo?label=VS%20Code)](https://marketplace.visualstudio.com/items?itemName=acedatacloud.mcp-veo) [![PyPI](https://img.shields.io/pypi/v/mcp-veo.svg?label=PyPI)](https://pypi.org/project/mcp-veo/) [![Hosted MCP](https://img.shields.io/badge/hosted-mcp-blue)](https://veo.mcp.acedata.cloud/mcp)
+[![VS Code Marketplace](https://img.shields.io/badge/VS%20Code-Marketplace-blue?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=acedatacloud.mcp-veo) [![PyPI](https://img.shields.io/pypi/v/mcp-veo.svg?label=PyPI)](https://pypi.org/project/mcp-veo/) [![Hosted MCP](https://img.shields.io/badge/hosted-mcp-blue)](https://veo.mcp.acedata.cloud/mcp)
 
 Generate AI video with Google Veo from text or images, including high-quality Veo 3.1 and the fast variants. Supports 1080p upscale.
 
