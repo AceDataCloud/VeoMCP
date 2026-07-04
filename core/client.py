@@ -167,11 +167,12 @@ class VeoClient:
         logger.info(f"🎬 Generating video with action: {kwargs.get('action', 'text2video')}")
         return await self.request("/veo/videos", self._with_async_callback(kwargs))
 
-    async def get_1080p(self, video_id: str) -> dict[str, Any]:
+    async def get_1080p(self, video_id: str, model: str) -> dict[str, Any]:
         """Get 1080p version of a video."""
         logger.info(f"📺 Getting 1080p video for: {video_id}")
         return await self.request(
-            "/veo/videos", self._with_async_callback({"action": "get1080p", "video_id": video_id})
+            "/veo/videos",
+            self._with_async_callback({"action": "get1080p", "video_id": video_id, "model": model}),
         )
 
     async def upsample_video(self, **kwargs: Any) -> dict[str, Any]:

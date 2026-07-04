@@ -183,6 +183,12 @@ async def veo_get_1080p(
             description="The video ID from a previous generation result. This is the 'id' field from the video data, not the task_id."
         ),
     ],
+    model: Annotated[
+        VeoModel,
+        Field(
+            description="The model used to generate the source video. Required by the API; pass the same model you used for the original generation."
+        ),
+    ] = DEFAULT_MODEL,
 ) -> str:
     """Get the 1080p high-resolution version of a generated video.
 
@@ -199,7 +205,7 @@ async def veo_get_1080p(
     Returns:
         Task ID and the 1080p video information including the new video URL.
     """
-    result = await client.get_1080p(video_id)
+    result = await client.get_1080p(video_id, model)
     return format_video_result(result)
 
 
