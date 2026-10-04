@@ -2,7 +2,7 @@
 name = "mcp-veo"
 version = "2026.4.5.0"
 description = "MCP Server for Veo AI Video Generation via AceDataCloud API"
-readme = "README.md"
+readme = "README.pypi.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
 authors = [
@@ -67,7 +67,7 @@ mcp-veo = "main:main"
 
 [project.urls]
 Homepage = "https://github.com/AceDataCloud/mcp-veo"
-Documentation = "https://platform.acedata.cloud/documents/veo-mcp"
+Documentation = "https://platform.acedata.cloud/documents/veo-mcp?utm_source=pypi&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_package_quick_start"
 Repository = "https://github.com/AceDataCloud/mcp-veo"
 Issues = "https://github.com/AceDataCloud/mcp-veo/issues"
 Changelog = "https://github.com/AceDataCloud/mcp-veo/blob/main/CHANGELOG.md"
@@ -87,6 +87,7 @@ include = [
     "tests/",
     "main.py",
     "README.md",
+    "README.pypi.md",
     "LICENSE",
     "CHANGELOG.md",
     ".env.example",

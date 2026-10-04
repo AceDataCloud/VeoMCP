@@ -5,7 +5,7 @@ AI Video Generation with [Google Veo](https://deepmind.google/technologies/veo) 
 <!-- Plugin description -->
 This plugin helps you set up the MCP Google Veo server with JetBrains AI Assistant.
 Once configured, AI Assistant can generate videos from text and images
-— all powered by [Ace Data Cloud](https://platform.acedata.cloud).
+— all powered by [Ace Data Cloud](https://platform.acedata.cloud?utm_source=jetbrains_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_jetbrains_platform).
 
 **14 AI Tools** — Generate videos from text and images.
 <!-- Plugin description end -->
@@ -14,7 +14,7 @@ Once configured, AI Assistant can generate videos from text and images
 
 1. Install this plugin from the [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/com.acedatacloud.mcp.veo)
 2. Open **Settings → Tools → Veo MCP**
-3. Enter your [Ace Data Cloud](https://platform.acedata.cloud) API token
+3. Enter your [Ace Data Cloud](https://platform.acedata.cloud?utm_source=jetbrains_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_jetbrains_platform) API token
 4. Click **Copy Config** (STDIO or HTTP)
 5. Paste into **Settings → Tools → AI Assistant → Model Context Protocol (MCP)**
 
@@ -55,8 +55,8 @@ Connects to the hosted MCP server at `veo.mcp.acedata.cloud`. No local install n
 
 ## Links
 
-- [Ace Data Cloud Platform](https://platform.acedata.cloud)
-- [Documentation](https://platform.acedata.cloud/documents/veo-mcp)
+- [Ace Data Cloud Platform](https://platform.acedata.cloud?utm_source=jetbrains_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_jetbrains_platform)
+- [Documentation](https://platform.acedata.cloud/documents/veo-mcp?utm_source=jetbrains_marketplace&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_jetbrains_quick_start)
 - [PyPI Package](https://pypi.org/project/mcp-veo/)
 - [Source Code](https://github.com/AceDataCloud/VeoMCP)
 
