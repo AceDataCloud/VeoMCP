@@ -30,11 +30,11 @@ class McpSettings : PersistentStateComponent<McpSettings.State> {
 
     fun getStdioConfig(): String {
         val token = myState.apiToken.ifEmpty { "YOUR_API_TOKEN" }
-        return """{"mcpServers": {"veo": {"command": "uvx", "args": ["mcp-veo"], "env": {"ACEDATACLOUD_API_TOKEN": "$$token"}}}}"""
+        return """{"mcpServers": {"veo": {"command": "uvx", "args": ["mcp-veo"], "env": {"ACEDATACLOUD_API_TOKEN": "$token"}}}}"""
     }
 
     fun getHttpConfig(): String {
         val token = myState.apiToken.ifEmpty { "YOUR_API_TOKEN" }
-        return """{"mcpServers": {"veo": {"url": "https://veo.mcp.acedata.cloud/mcp", "headers": {"Authorization": "Bearer $$token"}}}}"""
+        return """{"mcpServers": {"veo": {"url": "https://veo.mcp.acedata.cloud/mcp", "headers": {"Authorization": "Bearer $token"}}}}"""
     }
 }
