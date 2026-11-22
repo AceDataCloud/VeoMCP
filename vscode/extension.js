@@ -21,7 +21,7 @@ const CLEAR_TOKEN_CMD = "acedatacloud.veo.clearApiToken";
 // Per-extension SecretStorage namespace; we keep one key per service so
 // rotating one API key doesn't affect siblings.
 const SECRET_KEY = "veo.apiToken";
-const CREDENTIAL_URL = "https://platform.acedata.cloud/console/applications?utm_source=vscode&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_extension_api_key";
+const CREDENTIAL_URL = "https://platform.acedata.cloud/console/applications?utm_source=vscode&utm_medium=referral&utm_campaign=evergreen";
 
 async function readToken(context) {
   const env = process.env.ACEDATACLOUD_API_TOKEN;

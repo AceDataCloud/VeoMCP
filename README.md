@@ -8,7 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![MCP](https://img.shields.io/badge/MCP-Compatible-green.svg)](https://modelcontextprotocol.io)
 
-A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server for AI video generation using [Veo](https://deepmind.google/technologies/veo/) through the [AceDataCloud API](https://platform.acedata.cloud?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_readme_platform).
+A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server for AI video generation using [Veo](https://deepmind.google/technologies/veo/) through the [AceDataCloud API](https://platform.acedata.cloud?utm_source=github&utm_medium=referral&utm_campaign=evergreen).
 
 Generate AI videos from text prompts or images directly from Claude, VS Code, or any MCP-compatible client.
 
@@ -44,7 +44,7 @@ The hosted endpoint is `https://veo.mcp.acedata.cloud/mcp`. Choose one route for
 | Hosted API token | The client cannot finish OAuth, or you need an explicit integration credential | Send an AceDataCloud API token in the `Authorization: Bearer …` header. Keep it in a local secret store or environment variable. |
 | Local stdio | The client runs a local MCP process | Install `mcp-veo` and pass `ACEDATACLOUD_API_TOKEN` to that process. It still calls the AceDataCloud API. |
 
-The hosted service advertises OAuth metadata and Dynamic Client Registration (DCR). **DCR registers the client application; it is not an API key.** OAuth signs you in and the client sends the resulting Bearer token; it may reuse or create an API credential for the account. Browser sign-in still requires an AceDataCloud account. The hosted service can be metered: review [current service documentation](https://platform.acedata.cloud/documents/veo-mcp?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_readme_quick_start) and displayed pricing before a real operation. Do not configure both an OAuth login and a fixed `Authorization` header for the same server.
+The hosted service advertises OAuth metadata and Dynamic Client Registration (DCR). **DCR registers the client application; it is not an API key.** OAuth signs you in and the client sends the resulting Bearer token; it may reuse or create an API credential for the account. Browser sign-in still requires an AceDataCloud account. The hosted service can be metered: review [current service documentation](https://platform.acedata.cloud/documents/veo-mcp?utm_source=github&utm_medium=referral&utm_campaign=evergreen) and displayed pricing before a real operation. Do not configure both an OAuth login and a fixed `Authorization` header for the same server.
 
 ### Hosted OAuth examples
 
@@ -77,8 +77,8 @@ VS Code-specific workspace config (OAuth):
 ### Hosted API token
 
 <!-- BEGIN TOKEN ONBOARDING -->
-1. Open [Ace Data Cloud → Applications](https://platform.acedata.cloud/console/applications?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_readme_api_key). Sign in, or register an account first.
-2. Find **General application**. If it has not been created, choose **Initialize General Application**. A general key can use the services available to your account; a dedicated application's key is limited to its service. Check the required service/model access and [current pricing](https://platform.acedata.cloud/models?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_readme_models).
+1. Open [Ace Data Cloud → Applications](https://platform.acedata.cloud/console/applications?utm_source=github&utm_medium=referral&utm_campaign=evergreen). Sign in, or register an account first.
+2. Find **General application**. If it has not been created, choose **Initialize General Application**. A general key can use the services available to your account; a dedicated application's key is limited to its service. Check the required service/model access and [current pricing](https://platform.acedata.cloud/models?utm_source=github&utm_medium=referral&utm_campaign=evergreen).
 3. Copy the **API Key** from the application card, or open **Keys / Manage Keys → Create** to create a separate key for this integration. Give it a recognizable name so you can revoke or rotate it independently.
 4. When creating a key, review **Expiration Time**, **Set Usage Limitation**, and **Allowed APIs**. Enable only the restrictions you need, allow the operations you will call, then click **Create** and copy the token from the key list. Task lookup does not grant permission to submit a generation. Confirm the application's balance can cover your first request; any trial allowance is whatever your account currently displays.
 5. Copy only the token value, without quotation marks, spaces, or `Bearer `. An API Key / API Token field expects this raw value; only a manually configured HTTP `Authorization` header needs the `Bearer ` prefix. A `platform-...` account-management token cannot replace a generation API key.
@@ -176,7 +176,7 @@ Keep this user-level file private. Self-hosted HTTP uses `mcp-veo --transport ht
 
 1. `https://veo.mcp.acedata.cloud/health` returning `{"status":"ok"}` checks endpoint reachability only.
 2. Confirm that the MCP client loads tools. `veo_list_models` is a reference tool; it does not verify downstream API access or balance.
-3. Use a documented service operation for an end-to-end check after reviewing [current service documentation](https://platform.acedata.cloud/documents/veo-mcp?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_readme_quick_start) and displayed pricing. If the result contains a task ID, call `veo_get_task` on that same ID until terminal success or failure. Do not resubmit the operation just to check progress.
+3. Use a documented service operation for an end-to-end check after reviewing [current service documentation](https://platform.acedata.cloud/documents/veo-mcp?utm_source=github&utm_medium=referral&utm_campaign=evergreen) and displayed pricing. If the result contains a task ID, call `veo_get_task` on that same ID until terminal success or failure. Do not resubmit the operation just to check progress.
 
 For **401**, check which auth route the client used and whether the token or OAuth session is valid. A **403** may mean an account permission or content moderation failure; read the returned error. Insufficient balance and downstream service failures need their own diagnosis. A listed tool or submitted task does not prove a successful result.
 
@@ -372,10 +372,10 @@ VeoMCP/
 
 ## API Reference
 
-This server wraps the [AceDataCloud Veo API](https://platform.acedata.cloud/documents/veo-videos?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_readme_documents_veo-videos):
+This server wraps the [AceDataCloud Veo API](https://platform.acedata.cloud/documents/veo-videos?utm_source=github&utm_medium=referral&utm_campaign=evergreen):
 
-- [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_readme_documents_veo-videos) - Video generation
-- [Veo Tasks API](https://platform.acedata.cloud/documents/veo-videos?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_readme_documents_veo-videos) - Task queries
+- [Veo Videos API](https://platform.acedata.cloud/documents/veo-videos?utm_source=github&utm_medium=referral&utm_campaign=evergreen) - Video generation
+- [Veo Tasks API](https://platform.acedata.cloud/documents/veo-videos?utm_source=github&utm_medium=referral&utm_campaign=evergreen) - Task queries
 
 ## Contributing
 
@@ -390,7 +390,7 @@ Contributions are welcome! Please:
 ## Documentation
 
 <!-- canonical-documentation -->
-[Documentation](https://platform.acedata.cloud/documents/veo-mcp?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_readme_quick_start)
+[Documentation](https://platform.acedata.cloud/documents/veo-mcp?utm_source=github&utm_medium=referral&utm_campaign=evergreen)
 
 ## License
 
@@ -398,11 +398,11 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## Links
 
-- [AceDataCloud Platform](https://platform.acedata.cloud?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_readme_platform)
+- [AceDataCloud Platform](https://platform.acedata.cloud?utm_source=github&utm_medium=referral&utm_campaign=evergreen)
 - [Google Veo](https://deepmind.google/technologies/veo/)
 - [Model Context Protocol](https://modelcontextprotocol.io)
 - [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)
 
 ---
 
-Made with love by [AceDataCloud](https://platform.acedata.cloud?utm_source=github&utm_medium=referral&utm_campaign=evergreen&utm_content=veo_mcp_readme_platform)
+Made with love by [AceDataCloud](https://platform.acedata.cloud?utm_source=github&utm_medium=referral&utm_campaign=evergreen)
