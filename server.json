@@ -32,5 +32,11 @@
       "type": "streamable-http",
       "url": "https://veo.mcp.acedata.cloud/mcp"
     }
+  ],
+  "icons": [
+    {
+      "src": "https://cdn.acedata.cloud/8nxyy9.jpg",
+      "mimeType": "image/jpeg"
+    }
   ]
 }
